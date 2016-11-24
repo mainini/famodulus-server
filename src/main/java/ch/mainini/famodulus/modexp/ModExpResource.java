@@ -27,6 +27,11 @@ public class ModExpResource {
 
 //////////////////////////////////////// Methods
 
+    /**
+     * This method implements the API for querying modexps.
+     * @param query The query containing one or multiple modexps to calculate
+     * @return The result of the calculations
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
