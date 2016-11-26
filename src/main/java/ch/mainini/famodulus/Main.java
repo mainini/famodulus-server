@@ -63,8 +63,8 @@ public class Main {
         final ResourceConfig resourceConfig = new ResourceConfig().packages("ch.mainini.famodulus");
 
         LOG.fine("Setting up handler for static content...");   // @todo make configurable
-        HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(URI.create(API_URI), resourceConfig);
-        CustomStaticHttpHandler httpHandler = new CustomStaticHttpHandler();
+        final HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(URI.create(API_URI), resourceConfig);
+        final CustomStaticHttpHandler httpHandler = new CustomStaticHttpHandler();
         httpServer.getServerConfiguration().addHttpHandler(httpHandler, "/");
 
         return httpServer;

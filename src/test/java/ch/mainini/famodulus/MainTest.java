@@ -41,7 +41,7 @@ public class MainTest {
     public static void setUp() throws Exception {
         server = Main.startServer();
 
-        Client c = ClientBuilder.newClient();
+        final Client c = ClientBuilder.newClient();
         target = c.target(Main.BASE_URI);
     }
 
@@ -59,8 +59,8 @@ public class MainTest {
      */
     @Test
     public void getRoot() {
-        InputStream is = Main.class.getResourceAsStream("/index.html");
-        Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        final InputStream is = Main.class.getResourceAsStream("/index.html");
+        final Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
 
         assertEquals(s.next(), target.request().get(String.class));
     }

@@ -64,7 +64,7 @@ public class ModExpResourceTest {
     public static void setUp() throws Exception {
         server = Main.startServer();
 
-        Client c = ClientBuilder.newClient();
+        final Client c = ClientBuilder.newClient();
         target = c.target(Main.API_URI);
     }
 
@@ -255,6 +255,4 @@ public class ModExpResourceTest {
         assertEquals(HTTP_INTERNAL_SERVER_ERROR, target.path(API_PATH).request().post(Entity.entity("{\"m\":23,\"b\":2,\"e\":3,\"modexps\":[]}", MediaType.APPLICATION_JSON)).getStatus());
         assertEquals(HTTP_BAD_REQUEST,           target.path(API_PATH).request().post(Entity.entity("{\"m\":23,\"b\":2,\"e\":3,\"modexps\":[\"m\":\"\"]}", MediaType.APPLICATION_JSON)).getStatus());
     }
-
-
 }
