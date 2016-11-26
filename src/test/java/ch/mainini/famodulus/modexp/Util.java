@@ -58,8 +58,8 @@ class Util {
      * @return A JSON representation of modexp
      */
     static String serializeModexp(BigInteger[] modexp, boolean withResult) {
-        return withResult ? String.format("{\"m\":%s,\"b\":%s,\"e\":%s,\"r\":%s}", modexp[0], modexp[1], modexp[2], modexp[3]) :
-            String.format("{\"m\":%s,\"b\":%s,\"e\":%s}", modexp[0], modexp[1], modexp[2]) ;
+        return withResult ? String.format("{\"m\":\"%s\",\"b\":\"%s\",\"e\":\"%s\",\"r\":\"%s\"}", modexp[0], modexp[1], modexp[2], modexp[3]) :
+            String.format("{\"m\":\"%s\",\"b\":\"%s\",\"e\":\"%s\"}", modexp[0], modexp[1], modexp[2]) ;
     }
 
     /**
@@ -69,8 +69,8 @@ class Util {
      * @return A JSON representation of modexp
      */
     static String serializeModexpNoModulus(BigInteger[] modexp, boolean withResult) {
-        return withResult ? String.format("{\"b\":%s,\"e\":%s,\"r\":%s}", modexp[1], modexp[2], modexp[3]) :
-            String.format("{\"b\":%s,\"e\":%s}", modexp[1], modexp[2]) ;
+        return withResult ? String.format("{\"b\":\"%s\",\"e\":\"%s\",\"r\":\"%s\"}", modexp[1], modexp[2], modexp[3]) :
+            String.format("{\"b\":\"%s\",\"e\":\"%s\"}", modexp[1], modexp[2]) ;
     }
 
         /**
@@ -80,8 +80,8 @@ class Util {
      * @return A JSON representation of modexp
      */
     static String serializeModexpNoBase(BigInteger[] modexp, boolean withResult) {
-        return withResult ? String.format("{\"m\":%s,\"e\":%s,\"r\":%s}", modexp[0], modexp[2], modexp[3]) :
-            String.format("{\"m\":%s,\"e\":%s}", modexp[0], modexp[2]) ;
+        return withResult ? String.format("{\"m\":\"%s\",\"e\":\"%s\",\"r\":\"%s\"}", modexp[0], modexp[2], modexp[3]) :
+            String.format("{\"m\":\"%s\",\"e\":\"%s\"}", modexp[0], modexp[2]) ;
     }
 
     /**
@@ -91,12 +91,12 @@ class Util {
      * @return A JSON representation of modexp
      */
     static String serializeModexpNoExponent(BigInteger[] modexp, boolean withResult) {
-        return withResult ? String.format("{\"m\":%s,\"b\":%s,\"r\":%s}", modexp[0], modexp[1], modexp[3]) :
-            String.format("{\"m\":%s,\"b\":%s}", modexp[0], modexp[1]) ;
+        return withResult ? String.format("{\"m\":\"%s\",\"b\":\"%s\",\"r\":\"%s\"}", modexp[0], modexp[1], modexp[3]) :
+            String.format("{\"m\":\"%s\",\"b\":\"%s\"}", modexp[0], modexp[1]) ;
     }
 
     static String serializeModexpResponse(BigInteger response) {
-        return String.format("{\"r\":%s}", response);
+        return String.format("{\"r\":\"%s\"}", response);
     }
 
     /**
@@ -110,9 +110,9 @@ class Util {
      */
     static String serializeQuery(BigInteger modulus, BigInteger base, BigInteger exponent, boolean brief, String... modexps) {
         String query = "{";
-        query = modulus != null ? query + "\"m\":" + modulus + "," : query;
-        query = base != null ? query + "\"b\":" + base + "," : query;
-        query = exponent != null ? query + "\"e\":" + exponent + "," : query;
+        query = modulus != null ? query + "\"m\":\"" + modulus + "\"," : query;
+        query = base != null ? query + "\"b\":\"" + base + "\"," : query;
+        query = exponent != null ? query + "\"e\":\"" + exponent + "\"," : query;
         query = brief ? query : query + "\"brief\":false,";
 
         query = modexps.length > 0 ? query + "\"modexps\":[" : query;
@@ -137,9 +137,9 @@ class Util {
     static String serializeResponse(BigInteger modulus, BigInteger base, BigInteger exponent, boolean brief, String... response) {
         String queryResponse = "{";
         if(!brief) {
-            queryResponse = modulus != null ? queryResponse + "\"m\":" + modulus + "," : queryResponse;
-            queryResponse = base != null ? queryResponse + "\"b\":" + base + "," : queryResponse;
-            queryResponse = exponent != null ? queryResponse + "\"e\":" + exponent + "," : queryResponse;
+            queryResponse = modulus != null ? queryResponse + "\"m\":\"" + modulus + "\"," : queryResponse;
+            queryResponse = base != null ? queryResponse + "\"b\":\"" + base + "\"," : queryResponse;
+            queryResponse = exponent != null ? queryResponse + "\"e\":\"" + exponent + "\"," : queryResponse;
             queryResponse = queryResponse + "\"brief\":false,";
         }
 

@@ -5,8 +5,10 @@
  */
 package ch.mainini.famodulus.modexp;
 
+import ch.mainini.famodulus.util.BigIntegerStringAdapter;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * Bean encapsulating one or multiple modexps without shared base, exponent or
@@ -24,18 +26,21 @@ public class ModExpQueryBean {
      * Default modulus for all modexps which do not specify a modulus
      */
     @XmlAttribute(name = "m")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger modulus;
 
     /**
      * Default base for all modexps which do not specify a base
      */
     @XmlAttribute(name = "b")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger base;
 
     /**
      * Default exponent for all modexps which do not specify an exponent
      */
     @XmlAttribute(name = "e")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger exponent;
 
     /**

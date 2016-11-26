@@ -5,8 +5,10 @@
  */
 package ch.mainini.famodulus.modexp;
 
+import ch.mainini.famodulus.util.BigIntegerStringAdapter;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * Bean representing a single, modular exponentiation
@@ -17,15 +19,19 @@ public class ModExpBean {
 //////////////////////////////////////// Fields
 
     @XmlAttribute(name = "m")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger modulus;
 
     @XmlAttribute(name = "b")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger base;
 
     @XmlAttribute(name = "e")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger exponent;
 
     @XmlAttribute(name = "r")
+    @XmlJavaTypeAdapter(BigIntegerStringAdapter.class)
     private BigInteger result;
 
 //////////////////////////////////////// Constructors
