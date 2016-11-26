@@ -152,5 +152,4 @@ class Util {
 
         return queryResponse + "}";
     }
-
 }
