@@ -3,7 +3,7 @@
  * Licensed under MIT license, see included file LICENSE or
  * http://opensource.org/licenses/MIT
  */
-package ch.mainini.famodulus.util;
+package ch.mainini.famodulus;
 
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.Request;
