@@ -17,7 +17,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * Unit test for Main
+ * Unit test for Server
  * @author Pascal Mainini
  */
 public class MainTest {
@@ -39,10 +39,10 @@ public class MainTest {
      */
     @BeforeClass
     public static void setUp() throws Exception {
-        server = Main.startServer();
+        server = Server.startServer();
 
         final Client c = ClientBuilder.newClient();
-        target = c.target(Main.BASE_URI);
+        target = c.target(Server.BASE_URI);
     }
 
     /**
@@ -59,7 +59,7 @@ public class MainTest {
      */
     @Test
     public void getRoot() {
-        final InputStream is = Main.class.getResourceAsStream("/index.html");
+        final InputStream is = Server.class.getResourceAsStream("/index.html");
         final Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
 
         assertEquals(s.next(), target.request().get(String.class));

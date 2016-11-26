@@ -18,11 +18,11 @@ public class CustomStaticHttpHandler extends CLStaticHttpHandler {
 //////////////////////////////////////// Constructors
 
     /**
-     * Adds resources starting at the location of the ch.mainini.famodulus.Main-class.
+     * Adds resources starting at the location of the ch.mainini.famodulus.Server-class.
      * This way, external resources can easily be added using maven.
      */
     CustomStaticHttpHandler() {
-        super(ch.mainini.famodulus.Main.class.getClassLoader(), "/");
+        super(ch.mainini.famodulus.Server.class.getClassLoader(), "/");
         setFileCacheEnabled(false);    // @todo only enable in debug-mode
     }
 

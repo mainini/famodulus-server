@@ -5,7 +5,7 @@
  */
 package ch.mainini.famodulus.modexp;
 
-import ch.mainini.famodulus.Main;
+import ch.mainini.famodulus.Server;
 import static ch.mainini.famodulus.modexp.Util.P_3072;
 import static ch.mainini.famodulus.modexp.Util.randomModexp;
 import static ch.mainini.famodulus.modexp.Util.serializeModexp;
@@ -64,10 +64,10 @@ public class ModExpResourceTest {
      */
     @BeforeClass
     public static void setUp() throws Exception {
-        server = Main.startServer();
+        server = Server.startServer();
 
         final Client c = ClientBuilder.newClient();
-        target = c.target(Main.API_URI);
+        target = c.target(Server.API_URI);
     }
 
     /**
