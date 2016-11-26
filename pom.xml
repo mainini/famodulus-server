@@ -97,7 +97,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>ch.mainini.famodulus.Main</mainClass>
+                    <mainClass>ch.mainini.famodulus.Server</mainClass>
                 </configuration>
             </plugin>
         </plugins>
