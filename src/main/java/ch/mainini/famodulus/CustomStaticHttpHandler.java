@@ -32,6 +32,7 @@ public class CustomStaticHttpHandler extends CLStaticHttpHandler {
     /**
      * Handles incoming requests. Contains a filter to avoid serving class-files and
      * other resources rooted ad ch.mainini.famodulus.
+     * @todo proper CORS implementation
      *
      * @param uri The request URI
      * @param request The Request
