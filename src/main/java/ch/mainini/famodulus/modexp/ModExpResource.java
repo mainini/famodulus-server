@@ -39,6 +39,7 @@ public class ModExpResource {
         final BigInteger defaultModulus = query.getModulus();
         final BigInteger defaultBase = query.getBase();
         final BigInteger defaultExponent = query.getExponent();
+        final boolean briefResponse = query.getBrief();
 
         for(ModExpBean modexp: query.getModexps()) {
             final BigInteger m = modexp.getModulus() != null ? modexp.getModulus(): defaultModulus;
@@ -48,6 +49,19 @@ public class ModExpResource {
             final BigInteger r = b.modPow(e, m);
             modexp.setResult(r);
             LOG.finest(String.format("Calculated modexp, m: %s, b: %s, e: %s, r: %s ...", m, b, e, r));
+
+            if(briefResponse) {
+                modexp.setModulus(null);
+                modexp.setBase(null);
+                modexp.setExponent(null);
+            }
+        }
+
+        if(briefResponse) {
+            query.setModulus(null);
+            query.setBase(null);
+            query.setExponent(null);
+            query.setBrief(null);
         }
 
         return query;

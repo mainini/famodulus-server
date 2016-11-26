@@ -38,6 +38,11 @@ public class ModExpQueryBean {
     @XmlAttribute(name = "e")
     private BigInteger exponent;
 
+    /**
+     * Return a brief response with only the results (true) or the full query
+     * including results (false).
+     */
+    private Boolean brief = true;
 
 //////////////////////////////////////// Constructors
 
@@ -111,5 +116,19 @@ public class ModExpQueryBean {
      */
     public void setExponent(BigInteger exponent) {
         this.exponent = exponent;
+    }
+
+    /**
+     * @return the brief
+     */
+    public Boolean getBrief() {
+        return brief;
+    }
+
+    /**
+     * @param brief the brief to set
+     */
+    public void setBrief(Boolean brief) {
+        this.brief = brief;
     }
 }

@@ -95,19 +95,25 @@ class Util {
             String.format("{\"m\":%s,\"b\":%s}", modexp[0], modexp[1]) ;
     }
 
+    static String serializeModexpResponse(BigInteger response) {
+        return String.format("{\"r\":%s}", response);
+    }
+
     /**
-     * Helper method creating the JSON string for a modexp-query with optional default base, exponent and modulus.
+     * Helper method creating the JSON string for a modexp-queryResponse with optional default base, exponent and modulus.
      * @param modulus the default modulus to use or null to omit
      * @param base the default base to use or null to omit
      * @param exponent the default exponent to use or null to omit
-     * @param modexps JSON strings of modexps to query for
-     * @return A JSON representation of a modexp-query
+     * @param brief should the server return a brief or full response?
+     * @param modexps JSON strings of modexps to queryResponse for
+     * @return A JSON representation of a modexp-queryResponse
      */
-    static String serializeQuery(BigInteger modulus, BigInteger base, BigInteger exponent, String... modexps) {
+    static String serializeQuery(BigInteger modulus, BigInteger base, BigInteger exponent, boolean brief, String... modexps) {
         String query = "{";
         query = modulus != null ? query + "\"m\":" + modulus + "," : query;
         query = base != null ? query + "\"b\":" + base + "," : query;
         query = exponent != null ? query + "\"e\":" + exponent + "," : query;
+        query = brief ? query : query + "\"brief\":false,";
 
         query = modexps.length > 0 ? query + "\"modexps\":[" : query;
         for(int i = 0; i < modexps.length; i++) {
@@ -118,4 +124,33 @@ class Util {
 
         return query + "}";
     }
+
+    /**
+     * Helper method creating the JSON string for the queryResponse to a modexp-queryResponse, with optional default base, exponent and modulus.
+     * @param modulus the default modulus to use or null to omit
+     * @param base the default base to use or null to omit
+     * @param exponent the default exponent to use or null to omit
+     * @param brief do we expect a brief or full response?
+     * @param response JSON strings of response to queryResponse for
+     * @return A JSON representation of a modexp-queryResponse
+     */
+    static String serializeResponse(BigInteger modulus, BigInteger base, BigInteger exponent, boolean brief, String... response) {
+        String queryResponse = "{";
+        if(!brief) {
+            queryResponse = modulus != null ? queryResponse + "\"m\":" + modulus + "," : queryResponse;
+            queryResponse = base != null ? queryResponse + "\"b\":" + base + "," : queryResponse;
+            queryResponse = exponent != null ? queryResponse + "\"e\":" + exponent + "," : queryResponse;
+            queryResponse = queryResponse + "\"brief\":false,";
+        }
+
+        queryResponse = response.length > 0 ? queryResponse + "\"modexps\":[" : queryResponse;
+        for(int i = 0; i < response.length; i++) {
+            queryResponse += response[i];
+            queryResponse += i < response.length - 1 ? "," : "" ;
+        }
+        queryResponse = response.length > 0 ? queryResponse + "]" : queryResponse;
+
+        return queryResponse + "}";
+    }
+
 }
