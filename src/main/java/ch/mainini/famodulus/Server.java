@@ -5,6 +5,7 @@
  */
 package ch.mainini.famodulus;
 
+import ch.mainini.famodulus.util.CustomStaticHttpHandler;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;

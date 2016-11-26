@@ -3,7 +3,7 @@
  * Licensed under MIT license, see included file LICENSE or
  * http://opensource.org/licenses/MIT
  */
-package ch.mainini.famodulus;
+package ch.mainini.famodulus.util;
 
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.Request;
@@ -21,7 +21,7 @@ public class CustomStaticHttpHandler extends CLStaticHttpHandler {
      * Adds resources starting at the location of the ch.mainini.famodulus.Server-class.
      * This way, external resources can easily be added using maven.
      */
-    CustomStaticHttpHandler() {
+    public CustomStaticHttpHandler() {
         super(ch.mainini.famodulus.Server.class.getClassLoader(), "/");
         setFileCacheEnabled(false);    // @todo only enable in debug-mode
     }
