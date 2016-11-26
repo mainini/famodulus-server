@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 /**
  * Bean encapsulating one or multiple modexps without shared base, exponent or
  * modulus.
- * @todo extend with configuration for returning only the results
  * @author Pascal Mainini
  */
 public class ModExpQueryBean {
