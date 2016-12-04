@@ -17,7 +17,7 @@ import org.junit.Test;
  * Unit test for Server
  * @author Pascal Mainini
  */
-public class MainTest {
+public class ServerTest {
 //////////////////////////////////////// Constants
 
     private static final int HTTP_NOT_FOUND = 404;
@@ -53,12 +53,9 @@ public class MainTest {
 
     /**
      * Runs a HTTP GET / to see if we obtain index.html
+     * @todo implement
      */
     @Test
     public void getRoot() {
-/*        final InputStream is = Server.class.getResourceAsStream("/index.html");
-        final Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-
-        assertEquals(s.next(), target.request().get(String.class));
-*/    }
+    }
 }
