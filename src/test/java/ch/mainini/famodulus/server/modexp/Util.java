@@ -3,7 +3,7 @@
  * Licensed under MIT license, see included file LICENSE or
  * http://opensource.org/licenses/MIT
  */
-package ch.mainini.famodulus.modexp;
+package ch.mainini.famodulus.server.modexp;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;

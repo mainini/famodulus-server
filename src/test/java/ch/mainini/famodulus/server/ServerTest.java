@@ -3,7 +3,7 @@
  * Licensed under MIT license, see included file LICENSE or
  * http://opensource.org/licenses/MIT
  */
-package ch.mainini.famodulus;
+package ch.mainini.famodulus.server;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

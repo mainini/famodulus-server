@@ -3,18 +3,18 @@
  * Licensed under MIT license, see included file LICENSE or
  * http://opensource.org/licenses/MIT
  */
-package ch.mainini.famodulus.modexp;
+package ch.mainini.famodulus.server.modexp;
 
-import ch.mainini.famodulus.Server;
-import static ch.mainini.famodulus.modexp.Util.P_3072;
-import static ch.mainini.famodulus.modexp.Util.randomModexp;
-import static ch.mainini.famodulus.modexp.Util.serializeModexp;
-import static ch.mainini.famodulus.modexp.Util.serializeModexpNoBase;
-import static ch.mainini.famodulus.modexp.Util.serializeModexpNoExponent;
-import static ch.mainini.famodulus.modexp.Util.serializeModexpNoModulus;
-import static ch.mainini.famodulus.modexp.Util.serializeModexpResponse;
-import static ch.mainini.famodulus.modexp.Util.serializeQuery;
-import static ch.mainini.famodulus.modexp.Util.serializeResponse;
+import ch.mainini.famodulus.server.Server;
+import static ch.mainini.famodulus.server.modexp.Util.P_3072;
+import static ch.mainini.famodulus.server.modexp.Util.randomModexp;
+import static ch.mainini.famodulus.server.modexp.Util.serializeModexp;
+import static ch.mainini.famodulus.server.modexp.Util.serializeModexpNoBase;
+import static ch.mainini.famodulus.server.modexp.Util.serializeModexpNoExponent;
+import static ch.mainini.famodulus.server.modexp.Util.serializeModexpNoModulus;
+import static ch.mainini.famodulus.server.modexp.Util.serializeModexpResponse;
+import static ch.mainini.famodulus.server.modexp.Util.serializeQuery;
+import static ch.mainini.famodulus.server.modexp.Util.serializeResponse;
 import java.math.BigInteger;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

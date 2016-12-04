@@ -3,7 +3,7 @@
  * Licensed under MIT license, see included file LICENSE or
  * http://opensource.org/licenses/MIT
  */
-package ch.mainini.famodulus;
+package ch.mainini.famodulus.server;
 
 import java.io.IOException;
 import java.net.URI;
