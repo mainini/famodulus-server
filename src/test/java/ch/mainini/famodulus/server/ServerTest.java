@@ -56,7 +56,6 @@ public class ServerTest {
 
     /**
      * Runs a HTTP GET / to see if we obtain index.html
-     * @todo implement
      */
     @Test
     public void getRoot() {

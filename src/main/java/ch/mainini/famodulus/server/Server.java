@@ -29,7 +29,6 @@ public class Server {
 
     /**
      * Path to the RESTful API
-     * @todo make configurable
      */
     public static final String API_URI = BASE_URI + "api";
 
