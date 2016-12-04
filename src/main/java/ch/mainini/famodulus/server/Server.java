@@ -8,6 +8,7 @@ package ch.mainini.famodulus.server;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
+import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -46,7 +47,7 @@ public class Server {
         LOG.info("Configuring and starting webserver...");
         final HttpServer server = startServer();
         LOG.info(String.format("Webserver running at %s !", BASE_URI));
-        LOG.fine(String.format("WADL available at %sapplication.wadl", API_URI));
+        LOG.fine(String.format("WADL available at %s/application.wadl", API_URI));
 
         LOG.info("Hit enter to stop it...");
         System.in.read();
@@ -62,6 +63,8 @@ public class Server {
         LOG.fine("Adding JAX-RS resources...");
         final ResourceConfig resourceConfig = new ResourceConfig().packages("ch.mainini.famodulus");
         final HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(URI.create(API_URI), resourceConfig);
+        httpServer.getServerConfiguration().addHttpHandler(new CLStaticHttpHandler(Server.class.getClassLoader(), "ch/mainini/famodulus/server/"), "/");
+
         return httpServer;
     }
 }
