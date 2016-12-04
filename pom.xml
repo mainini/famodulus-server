@@ -8,7 +8,7 @@
     <version>0.0.1</version>
 
     <name>famodulus-server</name>
-    <description>Server for outsourcing calculations in multiplicative groups with prime modulus</description>
+    <description>Server for outsourcing calculations in multiplicative groups with prime modulus.</description>
     <url>http://mainini.ch</url>
 
     <licenses>
@@ -65,15 +65,6 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>${basedir}/../famodulus-client/dist</directory>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
