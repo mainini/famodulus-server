@@ -6,15 +6,15 @@
 package ch.mainini.famodulus.server.modexp;
 
 import ch.mainini.famodulus.server.Server;
-import static ch.mainini.famodulus.server.modexp.Util.P_3072;
-import static ch.mainini.famodulus.server.modexp.Util.randomModexp;
-import static ch.mainini.famodulus.server.modexp.Util.serializeModexp;
-import static ch.mainini.famodulus.server.modexp.Util.serializeModexpNoBase;
-import static ch.mainini.famodulus.server.modexp.Util.serializeModexpNoExponent;
-import static ch.mainini.famodulus.server.modexp.Util.serializeModexpNoModulus;
-import static ch.mainini.famodulus.server.modexp.Util.serializeModexpResponse;
-import static ch.mainini.famodulus.server.modexp.Util.serializeQuery;
-import static ch.mainini.famodulus.server.modexp.Util.serializeResponse;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.P_3072;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.randomModexp;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeModexp;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeModexpNoBase;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeModexpNoExponent;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeModexpNoModulus;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeModexpResponse;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeQuery;
+import static ch.mainini.famodulus.server.modexp.ModExpResourceTestHelper.serializeResponse;
 import java.math.BigInteger;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
