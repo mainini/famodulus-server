@@ -43,7 +43,7 @@ public class Server {
      * @throws IOException In case something went wrong
      */
     public static void main(String[] args) throws IOException {
-        LOG.info("Configuring and starting webserver...");
+        LOG.info("Configuring and starting famodulus-server webserver...");
         final HttpServer server = startServer();
         LOG.info(String.format("Webserver running at %s !", BASE_URI));
         LOG.fine(String.format("WADL available at %s/application.wadl", API_URI));
