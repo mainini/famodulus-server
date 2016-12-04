@@ -23,7 +23,7 @@ public class BigIntegerStringAdapter extends XmlAdapter<String, BigInteger> {
      */
     @Override
     public String marshal(BigInteger value) {
-        return value.toString();
+        return value.toString(16);
     }
 
     /**
@@ -33,6 +33,6 @@ public class BigIntegerStringAdapter extends XmlAdapter<String, BigInteger> {
      */
     @Override
     public BigInteger unmarshal(String value) {
-        return new BigInteger(value);
+        return new BigInteger(value, 16);
     }
 }

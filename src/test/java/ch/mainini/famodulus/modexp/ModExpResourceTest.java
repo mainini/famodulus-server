@@ -236,8 +236,8 @@ public class ModExpResourceTest {
      */
     @Test
     public void modexpOverrideModulus() {
-        final String query =    "{\"m\":\"23\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\"}]}";
-        final String response = "{\"m\":\"23\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
+        final String query =    "{\"m\":\"23\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\"}]}";
+        final String response = "{\"m\":\"23\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
         assertEquals(response, target.path(API_PATH).request().post(Entity.entity(query,MediaType.APPLICATION_JSON), String.class));
     }
 
@@ -246,8 +246,8 @@ public class ModExpResourceTest {
      */
     @Test
     public void modexpOverrideBase() {
-        final String query =    "{\"b\":\"9\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\"}]}";
-        final String response = "{\"b\":\"9\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
+        final String query =    "{\"b\":\"9\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\"}]}";
+        final String response = "{\"b\":\"9\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
         assertEquals(response, target.path(API_PATH).request().post(Entity.entity(query,MediaType.APPLICATION_JSON), String.class));
     }
 
@@ -256,8 +256,8 @@ public class ModExpResourceTest {
      */
     @Test
     public void modexpOverrideExponent() {
-        final String query =    "{\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\"}]}";
-        final String response = "{\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
+        final String query =    "{\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\"}]}";
+        final String response = "{\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
         assertEquals(response, target.path(API_PATH).request().post(Entity.entity(query,MediaType.APPLICATION_JSON), String.class));
     }
 
@@ -266,8 +266,8 @@ public class ModExpResourceTest {
      */
     @Test
     public void modexpOverrideAll() {
-        final String query =    "{\"m\":\"23\",\"b\":\"9\",\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\"}]}";
-        final String response = "{\"m\":\"23\",\"b\":\"9\",\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"17\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
+        final String query =    "{\"m\":\"23\",\"b\":\"9\",\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\"}]}";
+        final String response = "{\"m\":\"23\",\"b\":\"9\",\"e\":\"2\",\"brief\":false,\"modexps\":[{\"m\":\"11\",\"b\":\"3\",\"e\":\"5\",\"r\":\"5\"}]}";
         assertEquals(response, target.path(API_PATH).request().post(Entity.entity(query,MediaType.APPLICATION_JSON), String.class));
     }
 
