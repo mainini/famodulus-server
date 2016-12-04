@@ -24,7 +24,7 @@ public class Server {
      * Base URI on which the server listens
      * @todo make configurable
      */
-    public static final String BASE_URI = "http://localhost:8080/";
+    public static final String BASE_URI = "http://localhost:8081/";
 
     /**
      * Path to the RESTful API
@@ -61,12 +61,7 @@ public class Server {
     public static HttpServer startServer() {
         LOG.fine("Adding JAX-RS resources...");
         final ResourceConfig resourceConfig = new ResourceConfig().packages("ch.mainini.famodulus");
-
-        LOG.fine("Setting up handler for static content...");   // @todo make configurable
         final HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(URI.create(API_URI), resourceConfig);
-        final CustomStaticHttpHandler httpHandler = new CustomStaticHttpHandler();
-        httpServer.getServerConfiguration().addHttpHandler(httpHandler, "/");
-
         return httpServer;
     }
 }
