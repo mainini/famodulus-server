@@ -48,7 +48,8 @@ public class ModExpResource {
 
             final BigInteger r = b.modPow(e, m);
             modexp.setResult(r);
-            LOG.finest(String.format("Calculated modexp, m: %s, b: %s, e: %s, r: %s ...", m, b, e, r));
+            LOG.finest(String.format("Calculated modexp, m: %s, b: %s, e: %s, r: %s ...",
+                    m.toString(16), b.toString(16), e.toString(16), r.toString(16)));
 
             if(briefResponse) {
                 modexp.setModulus(null);
