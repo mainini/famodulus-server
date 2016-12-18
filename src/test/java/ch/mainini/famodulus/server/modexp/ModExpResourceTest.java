@@ -67,7 +67,7 @@ public class ModExpResourceTest {
         server = Server.startServer();
 
         final Client c = ClientBuilder.newClient();
-        target = c.target(Server.API_URI);
+        target = c.target(Server.DEFAULT_BASE_URI + Server.API_PATH);
     }
 
     /**
