@@ -5,7 +5,7 @@
 
     <groupId>ch.mainini</groupId>
     <artifactId>famodulus-server</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
 
     <name>famodulus-server</name>
     <description>Server for outsourcing calculations in multiplicative groups with prime modulus.</description>
