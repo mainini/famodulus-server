@@ -23,20 +23,18 @@ public class CORSResponseFilter implements ContainerResponseFilter {
 
     private static final Logger LOG = Logger.getLogger(CORSResponseFilter.class.getName());
 
-    /**
-     * Allow requests for any origin
-     * @todo make configurable
-     */
-    private static final String ALLOW_ORIGIN = "*";
+    private static final String DEFAULT_ALLOW_ORIGIN = "*";
 
+    private final String origin;
 
 //////////////////////////////////////// Constructors
 
     /**
-     * Default constructor, used for debug-logging
+     * Default constructor, retrieves the origin parameter from system properites
      */
     public CORSResponseFilter() {
-        LOG.finest("Filter instantiated!");
+        this.origin = System.getProperty("famodulus.allow_origin", DEFAULT_ALLOW_ORIGIN);
+        LOG.finest(String.format("Filter instantiated! Allowing origin: %s", origin));
     }
 
 
@@ -50,7 +48,7 @@ public class CORSResponseFilter implements ContainerResponseFilter {
     @Override
     public void filter(ContainerRequestContext ctx, ContainerResponseContext res) {
         MultivaluedMap<String, Object> headers = res.getHeaders();
-        headers.add("Access-Control-Allow-Origin", ALLOW_ORIGIN);
+        headers.add("Access-Control-Allow-Origin", origin);
         headers.add("Access-Control-Allow-Methods", "GET, POST");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
     }
