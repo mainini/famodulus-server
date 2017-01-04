@@ -8,10 +8,16 @@ In the following, all exposed methods are described.
 This method calculates one or multiple given modexps (modular exponentiations, b^e mod m) using `java.math.BigInteger.modPow()`.
 It only supports HTTP POST requestst and expects a JSON object in the following form:
 
-    {"brief":boolean, "b":"default base", "e":"default exponent", "m":"default modulus", "modexps":[ modexp1, modexp2, ... ]}
+```
+    { "brief":boolean,
+      "b":"default base", 
+      "e":"default exponent", 
+      "m":"default modulus", 
+      "modexps":[ modexp1, modexp2, ... ]}
+```
 
-`brief` is an option telling the server to either only return the calculated results (`true`) or to return the results
-including the original modexp parameters (`false`). It can be omitted, in which case it defaults to `true`.
+`brief` is a boolean option telling the server to either only return the calculated results (true) or to return the results
+including the original modexp parameters (false). It can be omitted, in which case it defaults to true.
 
 `"b"`, `"e"` and `"m"` are default values for the enclosed modexps; they are applied if any of the enclosed modexps misses one
 or more values. For instance, if all modexps use the same modulus, `"m"` may be given as default and omitted in the enclosed
@@ -22,7 +28,7 @@ modexps. If all enclosed modexps are complete, the default values may be omitted
     {"b":"base", "e":"exponent", "m":"modulus"}
 
 After successful calculation of the modexps, the server returns the results either as full modexp objects with an additional
-`"r"` value, or only as `{"r":"..."}`.
+`"r"` value, or only as `{"r":"..."}`, depending on the value of `brief`.
 
 *Note: values for base, exponent, modulus have to be given as hexadecimal strings. The result is returned as such a string as well.*
 
