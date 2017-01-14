@@ -5,6 +5,7 @@
  */
 package ch.mainini.famodulus.server.modexp;
 
+import com.squareup.jnagmp.Gmp;
 import java.math.BigInteger;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
@@ -36,17 +37,18 @@ public class ModExpResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ModExpQueryBean query(ModExpQueryBean query) {
+        final long startTime = System.nanoTime();
         final BigInteger defaultModulus = query.getModulus();
         final BigInteger defaultBase = query.getBase();
         final BigInteger defaultExponent = query.getExponent();
         final boolean briefResponse = query.getBrief();
 
         for(ModExpBean modexp: query.getModexps()) {
-            final BigInteger m = modexp.getModulus() != null ? modexp.getModulus(): defaultModulus;
+            final BigInteger m = modexp.getModulus() != null ? modexp.getModulus() : defaultModulus;
             final BigInteger b = modexp.getBase() != null ? modexp.getBase() : defaultBase;
             final BigInteger e = modexp.getExponent() != null ? modexp.getExponent() : defaultExponent;
 
-            final BigInteger r = b.modPow(e, m);
+            final BigInteger r = Gmp.modPowSecure(b, e, m);
             modexp.setResult(r);
             LOG.finest(String.format("Calculated modexp, m: %s, b: %s, e: %s, r: %s ...",
                     m.toString(16), b.toString(16), e.toString(16), r.toString(16)));
@@ -65,6 +67,7 @@ public class ModExpResource {
             query.setBrief(null);
         }
 
+        LOG.fine(String.format("Calculation took %f ms.", (System.nanoTime() - startTime) / 1000000.0));
         return query;
     }
 }
