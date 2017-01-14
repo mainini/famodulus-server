@@ -38,19 +38,15 @@ has to be a URI for the base of the server. For instance, to change the port to 
 [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) which is used by famodulus-client requires a set of HTTP headers to be set. Amongst them, the `Access-Control-Allow-Origin` controls from where connections to the server may occur.
 By default, this is set to `"*"`, allowing access from anywhere. Using the system property `famodulus.allow_origin`, this header can be configured according to your needs.
 
-## Enabling Montgomery Multiplication
-
-Java JRE 1.8 on Linux and Solaris supports Montgomery multiplication which may provide significant performance improvements for the calculations performed by famodulus-server. See [JDK-8153189](https://bugs.openjdk.java.net/browse/JDK-8153189) for details.
-
-To enable Montgomery multiplication, you may use the following command line:
-
-    MAVEN_OPTS='-XX:+UseMontgomeryMultiplyIntrinsic -XX:+UseMontgomerySquareIntrinsic' mvn exec:java
-
 # Usage
 
 See [API](api.md) for a description of the API.
 
 # Version History
+
+## 1.1.0 (2017-01-14)
+
+* Using [gmplib](https://gmplib.org/) via [jnagmp](https://github.com/square/jna-gmp) for modexp calculation
 
 ## 1.0.0 (2017-01-04)
 
